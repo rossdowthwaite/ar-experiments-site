@@ -1,0 +1,172 @@
+/*----------------------------------------------------------------------------*\
+    #LAYOUT
+\*----------------------------------------------------------------------------*/
+
+/**
+ * Positioning
+ */
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.fixed {
+    position: fixed;
+}
+
+.static {
+    position: static;
+}
+
+
+
+
+
+/**
+ * Display properties
+ */
+
+.block {
+    display: block;
+}
+
+.inline {
+    display: inline;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.flex {
+    display: flex;
+}
+
+
+
+
+
+/**
+ * Alignment
+ */
+
+.inline-block--top {
+    vertical-align: top;
+}
+
+.inline-block--middle {
+    vertical-align: middle;
+}
+
+.inline-block--bottom {
+    vertical-align: bottom;
+}
+
+
+
+
+
+/**
+ * Margins and padding
+ */
+
+.margin-auto {
+    margin: auto;
+}
+
+.flush {
+    margin: 0 !important;
+}
+
+.tight {
+    padding: 0 !important;
+}
+
+@each $breakpoint in $breakpoints {
+
+    @include breakpoint( $max: #{ nth( $breakpoint, 2 ) } ) {
+        .#{ nth( $breakpoint, 1 ) }-block {
+            display: block;
+            width: 100% !important;
+        }
+    }
+
+    @include breakpoint( $max: #{ nth( $breakpoint, 2 ) } ) {
+        .#{ nth( $breakpoint, 1 ) }-flush { margin: 0 !important; }
+    }
+
+    @include breakpoint( $max: #{ nth( $breakpoint, 2 ) } ) {
+        .#{ nth( $breakpoint, 1 ) }-tight { padding: 0 !important; }
+    }
+
+}
+
+
+
+
+
+/**
+ * Scroll variants
+ */
+
+.scroll {
+    overflow: scroll;
+}
+
+.scroll-x {
+    overflow-x: scroll;
+}
+
+.scroll-y {
+    overflow-y: scroll;
+}
+
+
+
+
+
+/**
+ * Overflow variants
+ */
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.overflow-auto {
+    overflow: auto;
+}
+
+
+
+
+
+/**
+ * Floats
+ */
+
+.float-right {
+    float: right;
+}
+
+.float-left {
+    float: left;
+}
+
+@each $breakpoint in $breakpoints {
+
+    @include breakpoint( $max: #{ nth( $breakpoint, 2 ) } ) {
+        .#{ nth( $breakpoint, 1 ) }-no-float {
+            float: none;
+        }
+    }
+
+}
+
+.content{
+    width:600px;
+}

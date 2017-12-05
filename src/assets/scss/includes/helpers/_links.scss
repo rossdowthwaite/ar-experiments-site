@@ -1,0 +1,60 @@
+/*----------------------------------------------------------------------------*\
+    #LINKS
+\*----------------------------------------------------------------------------*/
+
+.link,
+%link {
+    position: relative;
+    cursor: pointer;
+    text-decoration: none;
+    color: $text-link;
+
+    &:visited {
+        color: $text-link;
+    }
+
+    &:active,
+    &:focus {
+        color: $text-link;
+    }
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+
+.link--muted,
+%link--muted {
+    color: $text-colour-muted;
+
+    &:visited {
+        color: $text-colour-muted;
+    }
+
+    &:active,
+    &:focus {
+        color: darken( $text-colour-muted, 10% );
+    }
+}
+
+
+// .link--inverted,
+// %link--inverted {
+//     color: $text-colour-inverted;
+//
+//     &:visited {
+//         color: $text-colour-inverted;
+//     }
+//
+//     &:active,
+//     &:focus {
+//         color: $text-colour-inverted;
+//     }
+// }
+
+
+.link--no-underline,
+%link--no-underline {
+    text-decoration: none;
+}

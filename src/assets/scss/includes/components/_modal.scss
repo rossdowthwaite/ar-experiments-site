@@ -1,0 +1,35 @@
+.modal {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.75);
+  opacity: 0;
+  z-index: 1000000000;
+}
+
+  .modal-hidden {
+    display: none;
+    visibility: hidden;
+  }
+
+  .modal-show {
+    display: block;
+    visibility: visible;
+  }
+
+  .video-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    width: 600px;
+    height: 450px;
+    background-color: #FFF;
+  }
+
+  #video {
+    width: 100%    !important;
+    height: 100%   !important;
+  }

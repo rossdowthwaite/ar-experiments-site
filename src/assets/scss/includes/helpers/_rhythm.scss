@@ -1,0 +1,57 @@
+/*----------------------------------------------------------------------------*\
+    #RHYTHM
+\*----------------------------------------------------------------------------*/
+
+@each $size in $sizing {
+    .rhythmic-#{ nth( $size, 1 ) } {
+        padding-top: rhythm( nth( $size, 2 ) );
+        padding-bottom: rhythm( nth( $size, 2 ) );
+    }
+    // Outputs: rhythmic-xxs, rhythmic-m etc.
+}
+
+@each $breakpoint in $breakpoints {
+    @each $size in $sizing {
+        @include breakpoint( $max: #{ nth( $breakpoint, 2 ) } ) {
+            .#{ nth( $breakpoint, 1 ) }-rhythmic-#{ nth( $size, 1 ) } {
+                padding-top: rhythm( nth( $size, 2 ) );
+                padding-bottom: rhythm( nth( $size, 2 ) );
+            }
+            // Outputs: desktop-rhythmic-xxs, tablet-rhythmic-xl etc.
+        }
+    }
+}
+
+@for $i from 0 through 5 {
+
+    .rhythm-m-#{ $i } { margin-bottom: rhythm( $i ); }
+    .rhythm-m-#{ $i }-half { margin-bottom: rhythm( ( $i + 0.5 ) ); }
+
+    .rhythm-m-#{ $i }--t { margin-top: rhythm( $i ); }
+    .rhythm-m-#{ $i }-half--t { margin-top: rhythm( ( $i + 0.5 ) ); }
+
+    .rhythm-p-#{ $i } { padding-bottom: rhythm( $i ); }
+    .rhythm-p-#{ $i }-half { padding-bottom: rhythm( ( $i + 0.5 ) ); }
+
+    .rhythm-p-#{ $i }--t { padding-top: rhythm( $i ); }
+    .rhythm-p-#{ $i }-half--t { padding-top: rhythm( ( $i + 0.5 ) ); }
+    // Outputs: rhythm-m-1, rhythm-p-2--half etc.
+}
+
+@each $breakpoint in $breakpoints {
+    @for $i from 0 through 5 {
+        @include breakpoint( $max: #{ nth( $breakpoint, 2 ) } ) {
+
+            .#{ nth( $breakpoint, 1 ) }-rhythm-m-#{$i} { margin-bottom: rhythm( $i ); }
+            .#{ nth( $breakpoint, 1 ) }-rhythm-m-#{$i}-half { margin-bottom: rhythm( ( $i + 0.5 ) ); }
+
+            .#{ nth( $breakpoint, 1 ) }-rhythm-m-#{$i}--t { margin-top: rhythm( $i ); }
+            .#{ nth( $breakpoint, 1 ) }-rhythm-m-#{$i}-half--t { margin-top: rhythm( ( $i + 0.5 ) ); }
+
+            .#{ nth( $breakpoint, 1 ) }-rhythm-p-#{$i} { padding-bottom: rhythm( $i ); }
+            .#{ nth( $breakpoint, 1 ) }-rhythm-p-#{$i}-half { padding-bottom: rhythm( ( $i + 0.5 ) ); }
+            // Outputs: desktop-rhythm-m-1, tablet-rhythm-p-2--half etc.
+
+        }
+    }
+}

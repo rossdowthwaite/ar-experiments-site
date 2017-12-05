@@ -1,0 +1,81 @@
+/*----------------------------------------------------------------------------*\
+    #TEXT
+\*----------------------------------------------------------------------------*/
+
+/**
+ * Colours
+ */
+
+@each $colour in $site-colours {
+
+    .text-#{ nth( $colour, 1 ) } {
+        color: #{ nth( $colour, 2 ) };
+    }
+
+}
+
+
+
+
+
+/**
+ * Alignment
+ */
+
+.text-right {
+    text-align: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+
+
+
+
+/**
+ * Case
+ */
+
+.text-upper {
+    text-transform: uppercase;
+}
+
+
+
+
+
+/**
+ * Misc
+ */
+
+.text-nowrap {
+    white-space: nowrap;
+}
+
+.text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.text-break {
+    word-break: break-all;
+}
+
+.text-line-1 {
+    line-height: 1;
+}
+
+.text-underline {
+    text-decoration: underline;
+}
+
+.text-bold {
+  font-weight: bold;
+}

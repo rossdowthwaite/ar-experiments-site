@@ -1,0 +1,19 @@
+/*----------------------------------------------------------------------------*\
+    #FLEX
+\*----------------------------------------------------------------------------*/
+
+@for $i from 0 through 3 {
+
+    .flex-grow-#{ $i } {
+        flex-grow: #{ $i };
+    }
+
+}
+
+.flex-direction-column {
+    flex-direction: column;
+}
+
+.flex-direction-row {
+    flex-direction: row;
+}

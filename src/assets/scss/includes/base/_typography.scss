@@ -1,0 +1,98 @@
+/*----------------------------------------------------------------------------*\
+    #TYPOGRAPHY
+
+    Heading, paragraph and other type styles.
+\*----------------------------------------------------------------------------*/
+
+/**
+ * Headings
+ */
+
+.h1 {
+    font-family: $primary-font;
+    @include font-size( 70px, 2.4 );
+}
+
+.h1-tablet {
+  @include breakpoint( $tablet-width ) {
+    @include font-size( 50px, 2.4 );
+  }
+  @include breakpoint( $mobile-width ) {
+    @include font-size( 38px, 2.4 );
+  }
+}
+
+
+.h2 {
+    font-family: $primary-font;
+    @include font-size( 32px, 1.8 );
+}
+
+
+.h3 {
+    font-family: $primary-font;
+    @include font-size( 28px, 1.6 );
+}
+
+.h4 {
+    @include font-size( 24px, 1.6 );
+}
+
+
+
+
+
+/**
+ * Paragraphs
+ */
+
+.p {
+    @include font-size( 14px, 1.2 );
+}
+
+
+
+
+
+/**
+ * Font helpers
+ */
+
+.font-weight-normal {
+    font-weight: normal;
+}
+
+.font-weight-bold {
+    font-weight: normal;
+    font-family: 'GothamRnd-Bold';
+}
+
+
+.page-title {
+  letter-spacing: 5.1px;
+  font-size: 70px;
+  font-family: 'GothamRnd-Book';
+
+  @include breakpoint( $tablet-width ) {
+    font-size: 50px;
+  }
+
+  @include breakpoint( $mobile-width ) {
+    font-size: 30px;
+  }
+}
+
+.page-link {
+  font-family: 'GothamRnd-Book';
+  font-size: 36px;
+
+  @include breakpoint( $mobile-width ) {
+    font-size: 26px;
+  }
+
+  &:hover {
+    .arrow {
+      margin-left: 5%;
+    }
+  }
+}

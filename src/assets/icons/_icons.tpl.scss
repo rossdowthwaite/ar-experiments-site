@@ -1,0 +1,71 @@
+/*----------------------------------------------------------------------------*\
+    #ICONS
+
+	Required by gulp-iconfont & gulp-iconfont-css.
+
+	If you need to make changes to the output, ensure you edit the .tpl.scss
+	file (src/assets/icons/_icons.tpl.scss)
+\*----------------------------------------------------------------------------*/
+
+@font-face {
+	font-family: "<%= fontName %>";
+	src: url('<%= fontPath %><%= fontName %>.eot');
+	src: url('<%= fontPath %><%= fontName %>.eot?#iefix') format('eot'),
+		url('<%= fontPath %><%= fontName %>.woff2') format('woff2'),
+		url('<%= fontPath %><%= fontName %>.woff') format('woff'),
+		url('<%= fontPath %><%= fontName %>.ttf') format('truetype'),
+		url('<%= fontPath %><%= fontName %>.svg#<%= fontName %>') format('svg');
+}
+
+[class^="icon-"]:after,
+[class*=" icon-"]:after,
+%icon {
+    @include font-size( $base-font-size, 1.4 );
+    display: inline-block;
+    vertical-align: middle;
+    text-align: left;
+    text-transform: none;
+    font-family: '<%= fontName %>';
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate( 0, -2px );
+}
+
+
+.icon--large:after {
+	@include font-size( 30px );
+}
+
+.icon--xlarge:after {
+	@include font-size( 50px );
+}
+
+
+
+
+@function <%= cssClass%>-char($filename) {
+	$char: "";
+<% _.each(glyphs, function(glyph) { %>
+	@if $filename == <%= glyph.fileName %> {
+		$char: "\<%= glyph.codePoint %>";
+	}<% }); %>
+
+	@return $char;
+}
+
+@mixin <%= cssClass%>( $filename, $insert: after, $extend: true ) {
+	&:#{ $insert } {
+		content: <%= cssClass%>-char($filename);
+	}
+}
+
+<% _.each(glyphs, function(glyph) { %>
+	.<%= cssClass%>-<%= glyph.fileName %>,
+	%<%= cssClass%>-<%= glyph.fileName %> {
+		@include <%= cssClass%>(<%= glyph.fileName %>);
+	}
+<% }); %>

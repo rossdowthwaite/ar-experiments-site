@@ -1,0 +1,44 @@
+/*----------------------------------------------------------------------------*\
+    #GUTTER
+\*----------------------------------------------------------------------------*/
+
+
+@each $size in $sizing {
+
+    .gutted-#{ nth( $size, 1 ) } {
+        padding-left: gutter( nth( $size, 2 ) );
+        padding-right: gutter( nth( $size, 2 ) );
+    }
+    // Outputs: gutted-xxs, gutted-xs etc.
+
+    .gutted-l-#{ nth( $size, 1 ) } {
+        padding-left: gutter( nth( $size, 2 ) );
+    }
+    // Outputs: gutted-l-xxs, gutted-l-xs etc.
+
+    .gutted-r-#{ nth( $size, 1 ) } {
+        padding-right: gutter( nth( $size, 2 ) );
+    }
+    // Outputs: gutted-r-xxs, gutted-r-xs etc.
+
+}
+
+@each $breakpoint in $breakpoints {
+    @each $size in $sizing {
+        @include breakpoint($max: #{ nth( $breakpoint, 2 ) }) {
+            // Outputs: mobile-gutted-xxs, tablet-gutted-xs etc.
+            .#{ nth( $breakpoint, 1 ) }-gutted-#{ nth( $size, 1 ) } {
+                padding-left: gutter(nth($size, 2));
+                padding-right: gutter(nth($size, 2));
+            }
+            // Outputs: mobile-gutted-l-xxs, tablet-gutted-l-xs etc.
+            .#{ nth( $breakpoint, 1 ) }-gutted-l-#{ nth( $size, 1 ) } {
+                padding-left: gutter(nth($size, 2));
+            }
+            // Outputs: mobile-gutted-r-xxs, tablet-gutted-r-xs etc.
+            .#{ nth( $breakpoint, 1 ) }-gutted-r-#{ nth( $size, 1 ) } {
+                padding-right: gutter(nth($size, 2));
+            }
+        }
+    }
+}

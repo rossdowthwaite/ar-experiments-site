@@ -1,0 +1,66 @@
+/*----------------------------------------------------------------------------*\
+    #BREAKPOINTS
+
+    Usage:
+
+    @include breakpoint( $max: $deskop-width ) {}
+    @media only screen and ( max-width: $deskop-width ) {}
+
+    @include breakpoint( $min: 500px ) {}
+    @media only screen and ( min-width: 500px ) {}
+
+    @include breakpoint( $min: 500px, $max: $tablet-width ) {}
+    @media only screen and ( min-width: 500px ) and ( max-width: $tablet-width ) {}
+
+\*----------------------------------------------------------------------------*/
+
+/**
+ * Breakpoint variables
+ */
+$max-width             : 1440px;
+$desktop-width         : 1080px;
+$tablet-width          : 840px;
+$mobile-width          : 500px;
+$min-width             : 320px;
+
+
+
+/**
+ * Display breakpoint helper
+ */
+$show-breakpoint-helper: false;
+
+
+
+$breakpoints: (
+    wide:     $max-width,
+    desktop:  $desktop-width,
+    tablet:   $tablet-width,
+    mobile:   $mobile-width,
+    min:      $min-width
+);
+
+
+
+
+@if $show-breakpoint-helper {
+
+    @each $breakpoint in $breakpoints {
+
+        @include breakpoint( $max: #{ nth( $breakpoint, 2 ) } ) {
+            body:before {
+                content: '#{ nth( $breakpoint, 1 ) }';
+                position: absolute;
+                z-index: 9999;
+                top: 5px; right: 5px;
+                background: salmon;
+                border: 1px solid black;
+                font-size: 10px; line-height: 14px;
+                padding: 2px 4px;
+                text-transform: capitalize;
+            }
+        }
+
+    }
+
+}

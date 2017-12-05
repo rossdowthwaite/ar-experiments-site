@@ -1,0 +1,138 @@
+/*----------------------------------------------------------------------------*\
+    #ANIMATIONS
+
+    Derived from https://daneden.github.io/animate.css/
+\*----------------------------------------------------------------------------*/
+
+/**
+ * Base animations
+ */
+.anim {
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+}
+
+
+.anim--infinite {
+    animation-iteration-count: infinite;
+}
+
+
+.anim--fadeIn {
+    animation-name: fadeIn;
+}
+
+@keyframes fadeIn {
+
+  0% {
+    opacity: 0;
+    display: block ;
+    visibility: visible;
+  }
+
+  100% {
+    opacity: 1;
+  }
+
+}
+
+.anim--fadeIn75 {
+    animation-name: fadeIn75;
+}
+
+
+@keyframes fadeIn75 {
+
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.75;
+  }
+
+}
+
+.anim--fadeOut {
+    animation-name: fadeOut;
+}
+
+@keyframes fadeOut {
+
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    display: none;
+    visibility: hidden;
+  }
+
+}
+
+@keyframes fadeOutMove {
+
+  0% {
+    // opacity: 1;
+    margin-left: 5%;
+  }
+
+  100% {
+    // opacity: 0;
+    // display: none;
+    // visibility: hidden;
+    margin-left: 75%;
+  }
+}
+
+
+
+@keyframes moveRight {
+
+  0% {
+    margin-left: 5%;
+  }
+
+  100% {
+    margin-left: 75%;
+  }
+
+}
+
+.anim--moveRight {
+    animation-name: moveRight;
+}
+
+.anim--fadeOutSlowly {
+  animation-name: fadeOutSlowly;
+  -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+  animation-duration: 5s;
+}
+
+.anim--fadeOutMove {
+  animation-name: fadeOutMove;
+  -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+  animation-duration: 0.5s;
+}
+
+/**
+ * Animation delays and durations
+ */
+
+@for $i from 1 through 30 {
+
+    .anim--delay-#{ $i } {
+        animation-delay: #{ $i * 100 }ms;
+    }
+
+    .anim--delay:nth-of-type( #{ $i } ) {
+        animation-delay: #{ $i * 200 }ms;
+    }
+
+    .anim--dur-#{ $i } {
+        animation-duration: #{ $i * 100 }ms;
+    }
+
+}

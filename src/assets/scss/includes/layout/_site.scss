@@ -1,0 +1,150 @@
+/*----------------------------------------------------------------------------*\
+    #SITE
+\*----------------------------------------------------------------------------*/
+
+
+/*
+ * Sticky footer
+ */
+
+ html,
+ body,
+ .site-wrapper {
+    height: 100%;
+    z-index: -2;
+    position: relative;
+    background: linear-gradient(270deg, #092467, #151515);
+    background-size: 400% 400%;
+    min-height: 100%;
+    animation: BackgroundAnimation 30s ease infinite;
+}
+
+
+    @keyframes BackgroundAnimation {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+    }
+
+    .site-header {
+        z-index: index( $elements, "site-header" );
+    }
+
+    .site-content {
+        z-index: index( $elements, "site-content" );
+    }
+
+    .site-footer {
+        z-index: index( $elements, "site-footer" );
+    }
+
+    .main-content {
+      position: absolute;
+      top: 50%;
+      transform: translateY( -50% );
+      width: 100%;
+
+      @include breakpoint( $tablet-width ) {
+        position: relative;
+        top: 0;
+        transform: none;
+      }
+    }
+
+    .page {
+      height:100%;
+      width: 100%;
+      top: 0px;
+      position: absolute;
+      display: block;
+    }
+
+    .middle-content {
+      width: 100%;
+      max-width: 1440px;
+      margin: auto;
+      height:75%;
+
+      @include breakpoint( $tablet-width ) {
+        height:auto;
+        top: -0px;
+      }
+    }
+
+    .experiments {
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        height: 25%;
+
+        @include breakpoint( $tablet-width   ) {
+          position: relative;
+        }
+    }
+
+    .page-hidden {
+      display: none;
+      visibility: hidden;
+    }
+
+    .page__title-section {
+      width: 100%;
+      height: 70%;
+      max-width: 1440px;
+      margin: auto;
+
+      @include breakpoint( $tablet-width ) {
+        height: auto;
+      }
+    }
+
+    .page__desc-section {
+      width: 100%;
+      height: 30%;
+      max-width: 1440px;
+      margin: auto;
+    }
+
+    .pizzar-page::after {
+      background: url('../img/pizzar-bg.jpg');
+    }
+
+    .enargy-page::after {
+      background: url('../img/enargy-bg.png');
+    }
+
+    .socarban-page::after {
+      background: url('../img/socarban-bg.jpg');
+    }
+
+    .facar-page::after {
+      background: url('../img/facar-bg.jpg');
+    }
+
+    .page-bg::after{
+      content: "";
+      background-repeat: no-repeat;
+      background-size: cover;
+      opacity: 0.1;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      z-index: -1;
+    }
+
+    .arrow {
+      font-size: 42px;
+      margin-left: 0px;
+      -webkit-transition: margin-left 0.5s; /* For Safari 3.1 to 6.0 */
+      transition: margin-left 0.5s;
+    }
+
+    .play-button {
+      font-size: 42px;
+      position: absolute;
+      top: 50%;
+      transform: translateY( -50% );
+    }

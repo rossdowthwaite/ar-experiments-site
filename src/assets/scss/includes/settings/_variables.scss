@@ -1,0 +1,76 @@
+/*----------------------------------------------------------------------------*\
+    #VARIABLES
+\*----------------------------------------------------------------------------*/
+
+/**
+ * Grid
+ * 1. Using the inuitcss way of handling inline-block grids. If this is set to
+ * true, the grid will automatically fix itself using font-size: 0; hack, if
+ * false, you'll need to comment grid__items or minify HTML.
+ */
+$auto-grid-fix: true; /* [1] */
+
+
+/**
+ * Gutter & rhythm
+ */
+$base-gutter:        20px;
+$base-line-height:   20px;
+
+
+/**
+ * Compass
+ */
+$rhythm-unit:                 "px";
+$rem-with-px-fallback:         false;
+$round-to-nearest-half-line:   true;
+$base-font-size:               18px;
+@include establish-baseline;
+
+
+/**
+ * Paths
+ */
+$font-path:     "../fonts/";
+$image-path:    "../images/";
+
+
+/**
+ * Defaults
+ */
+$primary-font:     "GothamRnd-Medium";
+$web-safe-font:    "\"Helvetica Neue\", Helvetica, Arial, sans-serif";
+$border-radius:    3px; // remove?
+
+
+/**
+ * Colours
+ */
+$brand-primary: #FF0000;
+$brand-secondary: #9b59b6;
+$white: #FFFFFF;
+
+$text-colour: #ffffff;
+$text-colour-muted: #cccccc;
+$text-link: #3498db;
+
+$background-colour: #f7f7f7;
+$border-colour: #cccccc;
+
+// Colours array
+$site-colours: (
+	"brand-primary"  	: $brand-primary,
+	"brand-secondary"  	: $brand-secondary,
+	"link"				: $text-link,
+    "white"             : $white
+);
+
+$sizing: (
+    "xxs" : 0.25,
+    "xs"  : 0.5,
+    "s"   : 0.75,
+    "m"   : 1,
+    "l"   : 1.25,
+    "xl"  : 1.5,
+    "xxl" : 2
+);
