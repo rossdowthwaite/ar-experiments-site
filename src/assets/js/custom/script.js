@@ -77,7 +77,7 @@ function showPage(page) {
       break;
     case 'pizzar':
       revealSection( pizzarPageParts );
-      video.src = "https://www.youtube.com/embed/w6ffL3PJ2Og"
+      video.src = "assets/video/pizzapizza.mp4"
       break;
     case 'enargy':
       revealSection( enargyPageParts );
